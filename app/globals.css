@@ -1,0 +1,185 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* OpenClaw Academy - 明亮游戏化主题 */
+  --background: #F8F7F3;
+  --foreground: #2D2D2D;
+  --card: #FFFFFF;
+  --card-foreground: #2D2D2D;
+  --popover: #FFFFFF;
+  --popover-foreground: #2D2D2D;
+  --primary: #4DA3FF;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F0EFED;
+  --secondary-foreground: #2D2D2D;
+  --muted: #E8E7E3;
+  --muted-foreground: #8B8B8B;
+  --accent: #FFB86B;
+  --accent-foreground: #FFFFFF;
+  --destructive: #FF6B6B;
+  --destructive-foreground: #FFFFFF;
+  --border: #E8E7E3;
+  --input: #FFFFFF;
+  --ring: #4DA3FF;
+  --radius: 1rem;
+
+  /* 游戏化专用色 */
+  --xp-color: #6EDB8F;
+  --xp-glow: #6EDB8F;
+  --step-done: #6EDB8F;
+  --step-active: #4DA3FF;
+  --step-locked: #D0CECC;
+  --terminal-bg: #2D2D2D;
+  --terminal-text: #6EDB8F;
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glow-blue: #4DA3FF;
+  --glow-green: #6EDB8F;
+
+  --chart-1: oklch(0.65 0.22 262);
+  --chart-2: oklch(0.65 0.18 142);
+  --chart-3: oklch(0.65 0.22 27);
+  --chart-4: oklch(0.75 0.18 60);
+  --chart-5: oklch(0.65 0.22 310);
+  --sidebar: oklch(0.11 0.007 264);
+  --sidebar-foreground: oklch(0.85 0 0);
+  --sidebar-primary: oklch(0.65 0.22 262);
+  --sidebar-primary-foreground: oklch(0.98 0 0);
+  --sidebar-accent: oklch(0.18 0.01 264);
+  --sidebar-accent-foreground: oklch(0.85 0 0);
+  --sidebar-border: oklch(0.2 0.01 264);
+  --sidebar-ring: oklch(0.55 0.22 262);
+}
+
+.dark {
+  /* 保持明亮主题，忽略 dark class */
+  --background: #F8F7F3;
+  --foreground: #2D2D2D;
+  --card: #FFFFFF;
+  --card-foreground: #2D2D2D;
+  --popover: #FFFFFF;
+  --popover-foreground: #2D2D2D;
+  --primary: #4DA3FF;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F0EFED;
+  --secondary-foreground: #2D2D2D;
+  --muted: #E8E7E3;
+  --muted-foreground: #8B8B8B;
+  --accent: #FFB86B;
+  --accent-foreground: #FFFFFF;
+  --destructive: #FF6B6B;
+  --destructive-foreground: #FFFFFF;
+  --border: #E8E7E3;
+  --input: #FFFFFF;
+  --ring: #4DA3FF;
+  --sidebar: #F8F7F3;
+  --sidebar-foreground: #2D2D2D;
+  --sidebar-primary: #4DA3FF;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #E8E7E3;
+  --sidebar-accent-foreground: #2D2D2D;
+  --sidebar-border: #E8E7E3;
+  --sidebar-ring: #4DA3FF;
+}
+
+@theme inline {
+  --font-sans: 'Inter', 'Geist', 'Geist Fallback';
+  --font-mono: 'JetBrains Mono', 'Geist Mono', 'Geist Mono Fallback';
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    color-scheme: light;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(77, 163, 255, 0.15);
+  }
+  .glow-blue {
+    box-shadow: 0 0 20px rgba(77, 163, 255, 0.15), 0 0 40px rgba(77, 163, 255, 0.08);
+  }
+  .glow-green {
+    box-shadow: 0 0 20px rgba(110, 219, 143, 0.15), 0 0 40px rgba(110, 219, 143, 0.08);
+  }
+  .glow-text-blue {
+    text-shadow: 0 0 12px rgba(77, 163, 255, 0.5);
+  }
+  .glow-text-green {
+    text-shadow: 0 0 12px rgba(110, 219, 143, 0.5);
+  }
+  .terminal-font {
+    font-family: 'JetBrains Mono', 'Geist Mono', monospace;
+  }
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: #E8E7E3 transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: #E8E7E3;
+    border-radius: 2px;
+  }
+  .noise-bg {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E");
+  }
+  .soft-shadow {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 4px 16px rgba(0, 0, 0, 0.04);
+  }
+  .card-shadow {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+}
